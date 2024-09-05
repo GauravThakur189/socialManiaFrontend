@@ -7,7 +7,7 @@ import Authentication from './components/authentication/Authentication';
 function App() {
   return (
    <Routes>
-    <Route path='/' element={true?<HomePage/>:<Authentication/>}></Route>
+    <Route path='/*' element={true?<HomePage/>:<Authentication/>}></Route>
    </Routes>
   );
 }

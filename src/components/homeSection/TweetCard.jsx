@@ -85,7 +85,7 @@ const TweetCard = () => {
           </div>
 
           <div className=" mt-2">
-            <div className=" cursor-pointer">
+            <div onClick={()=> navigate(`/twit/${3}`)} className=" cursor-pointer">
               <p className=" mb-2 p-0">nice content full stact project</p>
               <img
                 className="w-[28rem] border border-gray-400 p-5 rounded-md"

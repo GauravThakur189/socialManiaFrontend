@@ -53,10 +53,10 @@ const Navigation = () => {
             <div
               className=" cursor-pointer flex space-x-3 items-center"
               onClick={() =>
-                item.title === "Profile"
-                  ? navigate("/profile/${5}")
-                  : navigate(item.path)
-              }
+  item.title === "Profile"
+    ? navigate(`/profile/${5}`)
+    : navigate(item.path)
+}
             >
               {item.icon}
               <p className="text-xl">{item.title}</p>
