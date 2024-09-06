@@ -8,10 +8,14 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FileUploadIcon from "@mui/icons-material/FileUpload";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import ReplyModel from "./ReplyModel";
 
 const TweetCard = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [openReplyModel, setOpenReplyModel] = React.useState(false);
+  const handleOpenReplyModel = () => setOpenReplyModel(true);
+  const handleCloseReplyModel = () => setOpenReplyModel(false);
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -25,9 +29,9 @@ const TweetCard = () => {
     console.log("delete tweet");
     handleClose();
   };
-  const handleOpenReplyModel = () => {
-    console.log("open reply model");
-  };
+  // const handleOpenReplyModel = () => {
+  //   console.log("open reply model");
+  // };
 
   const handleCreateRetweet = () => {
     console.log("create retweet");
@@ -36,7 +40,7 @@ const TweetCard = () => {
     console.log("handle like tweets");
   };
   return (
-    <div className=" ">
+    <React.Fragment className=" ">
       {/* <div className=' flex items-center  font-semibold text-gray-700 py-2'>
        <RepeatOnIcon/>
        <p> You Retweet</p>
@@ -73,7 +77,7 @@ const TweetCard = () => {
                 id="basic-menu"
                 anchorEl={anchorEl}
                 open={open}
-                onClose={handleClose}
+                onClick={handleClose}
                 MenuListProps={{
                   "aria-labelledby": "basic-button",
                 }}
@@ -147,7 +151,10 @@ const TweetCard = () => {
           </div>
         </div>
       </div>
-    </div>
+      <section>
+        <ReplyModel open={openReplyModel} handleClose={handleCloseReplyModel}/>
+      </section>
+    </React.Fragment>
   );
 };
 

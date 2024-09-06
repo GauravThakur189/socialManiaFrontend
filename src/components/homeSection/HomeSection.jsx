@@ -28,7 +28,7 @@ const HomeSection = () => {
     validationSchema: validationSchema,
   });
 
-  const handleSelct = (event) => {
+  const handleSelect = (event) => {
     setUploadingImage(true);
     const imgUrl = event.target.files[0];
     formik.setFieldValue("image", imgUrl);
@@ -72,7 +72,7 @@ const HomeSection = () => {
                   type="file"
                   name="imageFile"
                   className="hidden"
-                  onChange={handleSelct}
+                  onChange={handleSelect}
                 />
                 </label>
                 <FmdGoodIcon className=" text-[#1d9bf0]"/>
