@@ -9,6 +9,7 @@ import TabPanel from '@mui/lab/TabPanel';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TweetCard from "../homeSection/TweetCard";
+import ProfileModel from "./ProfileModel";
 
 const Profile = () => {
     const [tabValue, setTabValue] = React.useState('1');
@@ -145,6 +146,9 @@ const Profile = () => {
       </TabContext>
     </Box>
     
+      </section>
+      <section>
+        <ProfileModel/>
       </section>
     </div>
   );
