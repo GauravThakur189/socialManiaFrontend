@@ -13,6 +13,9 @@ import ProfileModel from "./ProfileModel";
 
 const Profile = () => {
     const [tabValue, setTabValue] = React.useState('1');
+       const [openProfileModel, setOpenProfileModel] = React.useState(false);
+  const handleOpenProfileModal = () => setOpenProfileModel(true);
+   const handleClose = () => setOpenProfileModel(false);
 
     const handleTabChange = (event, newValue) => {
       setTabValue(newValue);
@@ -30,9 +33,7 @@ const Profile = () => {
     navigate(-1);
   };
 
-  const handleOpenProfile = () => {
-    console.log("open profile model");
-  };
+  
   const handleFollowUser = () => {
     console.log("follow user");
   };
@@ -62,7 +63,7 @@ const Profile = () => {
           />
           {true ? (
             <Button
-              onclick={handleOpenProfile}
+              onClick={handleOpenProfileModal}
               className=" rounded-full"
               variant="contained"
               sx={{ borderRadius: "20px" }}
@@ -148,7 +149,7 @@ const Profile = () => {
     
       </section>
       <section>
-        <ProfileModel/>
+        <ProfileModel handleClose={handleClose} open={openProfileModel}/>
       </section>
     </div>
   );

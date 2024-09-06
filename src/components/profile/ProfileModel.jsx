@@ -21,10 +21,10 @@ const style = {
   borderRadius: 4,
 };
 
-export default function ProfileModel() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function ProfileModel({open,handleClose}) {
+//   const [open, setOpen] = React.useState(false);
+//   const handleOpen = () => setOpen(true);
+//   const handleClose = () => setOpen(false);
   const [uploading, SetUploading] = React.useState(false);
 
   const handleSubmit = (values) => {
@@ -53,9 +53,9 @@ export default function ProfileModel() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
-        open={true}
+        open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
