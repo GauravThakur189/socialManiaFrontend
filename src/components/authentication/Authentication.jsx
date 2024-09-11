@@ -27,7 +27,7 @@ const Authentication = () => {
             <GoogleLogin width={330}/>
             <p className=' py-5 text-center'>OR</p>
             <Button  onClick={handleOpenAuthModel}
-            fullWidth varient="contained" size='large' sx={{
+            fullWidth  variant="contained" size='large' sx={{
               borderRadius:"29px",
               py:"7px",
 
