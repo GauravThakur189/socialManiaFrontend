@@ -7,6 +7,7 @@ import RightPart from "../rightPart/RightPart";
 import { Route, Routes } from "react-router-dom";
 import Profile from "../profile/Profile";
 import TwitDetails from "../tweetDetails/TwitDetails";
+import Authentication from "../authentication/Authentication";
 
 const HomePage = () => {
   return (
