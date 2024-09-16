@@ -3,8 +3,10 @@ import { navigationMenu } from "./NavigationMenu";
 import { useNavigate } from "react-router-dom";
 import { Avatar, Button, Menu, MenuItem } from "@mui/material";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
+  const {auth} = useSelector(store=>store)
   const navigate = useNavigate();
 
   // const [anchorEl, setAnchorEl] =
@@ -18,6 +20,7 @@ const Navigation = () => {
   // };
 
   const [anchorEl, setAnchorEl] = React.useState(null);
+  
   const open = Boolean(anchorEl);
 
   const handleClick = (event) => {
@@ -86,7 +89,7 @@ const Navigation = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSLU5_eUUGBfxfxRd4IquPiEwLbt4E_6RYMw&s"
           />
           <div>
-            <span>Gaurav rajan Singh</span>
+            <span>{auth.user?.fullName}</span>
             <span className="opacity-70">@gaurav</span>
           </div>
 

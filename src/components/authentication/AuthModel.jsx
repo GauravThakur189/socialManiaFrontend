@@ -23,21 +23,60 @@ const style = {
   outline:"none"
 };
 
-export default function AuthModal({open,handleClose}) {
-//   const [open, setOpen] = React.useState(false);
-//   const handleOpen = () => setOpen(true);
-//   const handleClose = () => setOpen(false);
+// export default function AuthModal({open,handleClose}) {
 
-const location = useLocation()
-const navigate = useNavigate();
-const handleNavigate = ()=>{
-   const path =  location.pathname==="/signup" ? "/signin" : "/signup"
-   navigate(path)
-}
+
+// const location = useLocation()
+// const navigate = useNavigate();
+// const handleNavigate = ()=>{
+//    const path =  location.pathname==="/signup" ? "/signin" : "/signup"
+//    navigate(path)
+// }
+
+//   return (
+//     <div>
+      
+//       <Modal
+//         open={open}
+//         onClose={handleClose}
+//         aria-labelledby="modal-modal-title"
+//         aria-describedby="modal-modal-description"
+//       >
+//         <Box sx={style}>
+//           <h1 className=' text-center font-bold text-3xl pb-20'>
+//             Create your Account
+//           </h1>
+           
+//           {location.pathname==="/signup" ? <SigninForm/> : <SignupForm/>}
+//           <h1 className=' text-center py-5 font-semibold text-lg text-gray-500'>
+//              {location.pathname==="/signin" ? "already have account" : "If you don't have account"}
+//           </h1>
+//           <Button fullWidth variant='outlined' 
+//           onClick={handleNavigate}
+//           sx={{borderRadius:"29px", py:"15px"}}>
+//           {location.pathname==="/signup" ? "signin" : "signup"}
+//           </Button>
+//         </Box>
+//       </Modal>
+//     </div>
+//   );
+// }
+
+export default function AuthModal({ open, handleClose }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Toggle between signup and signin pages
+  const handleNavigate = () => {
+    const path = location.pathname.includes("/signup") ? "/signin" : "/signup";
+    navigate(path);
+  };
+
+  // Determine if current path is signup or signin to show the right form
+  const isSignup = location.pathname.includes("/signin");
 
   return (
     <div>
-      
       <Modal
         open={open}
         onClose={handleClose}
@@ -45,18 +84,24 @@ const handleNavigate = ()=>{
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <h1 className=' text-center font-bold text-3xl pb-20'>
-            Create your Account
+          <h1 className="text-center font-bold text-3xl pb-20">
+            {isSignup ? "Create your Account" : "Sign In to Your Account"}
           </h1>
-           
-          {location.pathname==="/signup" ? <SignupForm/> : <SigninForm/>}
-          <h1 className=' text-center py-5 font-semibold text-lg text-gray-500'>
-             {location.pathname==="/signup" ? "already have account" : "If you don't have account"}
+
+          {/* Render SignupForm if it's signup path, otherwise SigninForm */}
+          {isSignup ? <SignupForm /> : <SigninForm />}
+
+          <h1 className="text-center py-5 font-semibold text-lg text-gray-500">
+            {isSignup ? "Already have an account?" : "Don't have an account?"}
           </h1>
-          <Button fullWidth variant='outlined' 
-          onClick={handleNavigate}
-          sx={{borderRadius:"29px", py:"15px"}}>
-          {location.pathname==="/signup" ? "signin" : "signup"}
+
+          <Button
+            fullWidth
+            variant="outlined"
+            onClick={handleNavigate}
+            sx={{ borderRadius: "29px", py: "15px" }}
+          >
+            {isSignup ? "Sign In" : "Sign Up"}
           </Button>
         </Box>
       </Modal>
